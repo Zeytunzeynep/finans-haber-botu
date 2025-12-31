@@ -1,0 +1,19 @@
+# --- Güvenlik ---
+.env
+.env.local
+
+# --- Python Gereksiz Dosyalar ---
+__pycache__/
+*.pyc
+
+# --- Editör Ayarları (Gerek yok) ---
+.vscode/
+.idea/
+
+# --- İşletim Sistemi Çöpleri ---
+.DS_Store
+
+# --- Çıktı Dosyaları (Her seferinde değişir, yüklemeye gerek yok) ---
+*.html
+*.log
+news_agent.db
