@@ -3,6 +3,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 import time
+import os
 
 from database import DataBase
 from content_bot.ai_agent import AiAgent
@@ -13,6 +14,29 @@ from content_bot.pages.bloomberg_page import BloombergPage
 from content_bot.pages.ekonomim_page import EkonomimPage
 from content_bot.pages.doviz_page import DovizPage
 from content_bot.pages.haberturk_page import HaberturkPage
+
+
+def debug_secrets():
+    print("--- 🕵️‍♂️ DEBUG BAŞLANGICI ---")
+
+    # 1. Ortamda hangi anahtarlar var? (Sadece isimleri yazdırır)
+    env_keys = list(os.environ.keys())
+    print(f"Mevcut Değişkenler: {[k for k in env_keys if 'API' in k or 'GEMINI' in k]}")
+
+    # 2. Bizim anahtar orada mı?
+    key = os.getenv("GEMINI_API_KEY")
+
+    if key is None:
+        print(
+            "❌ DURUM: os.getenv('GEMINI_API_KEY') --> None dönüyor (Python değişkeni hiç görmüyor)."
+        )
+    elif key == "":
+        print("❌ DURUM: Değişken var ama içi BOŞ (Empty String).")
+    else:
+        print(f"✅ DURUM: Anahtar yakalandı! Uzunluk: {len(key)} karakter.")
+        print(f"   İlk 2 harf: {key[:2]}*** (AI ile başlamalı)")
+
+    print("--- 🕵️‍♂️ DEBUG BİTİŞİ ---")
 
 
 def main():
@@ -113,4 +137,5 @@ def main():
 
 
 if __name__ == "__main__":
+    debug_secrets()
     main()
