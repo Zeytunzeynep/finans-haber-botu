@@ -99,7 +99,7 @@ def main():
         print("\n🧠 Analiz İşlemi Kontrol Ediliyor...")
 
         # --- ANALİZ KISMI (Eski kodun aynısı) ---
-        unprocessed_news = db.get_unprocessed_news()[:10]
+        unprocessed_news = db.get_unprocessed_news()[:5]
         if unprocessed_news:
             print(f"   ⏳ {len(unprocessed_news)} adet yeni haber analiz edilecek.")
             for index, (news_id, title, content) in enumerate(unprocessed_news, 1):
