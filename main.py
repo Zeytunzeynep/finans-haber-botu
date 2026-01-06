@@ -111,7 +111,7 @@ def main():
                         news_id, result["summary"], result["sentiment"]
                     )
                     print(f"      ✅ Bitti! (Yön: {result['sentiment']})")
-                time.sleep(4)
+                time.sleep(35)
         else:
             print("   ✅ Analiz edilecek yeni haber yok.")
 
